@@ -2,7 +2,7 @@ import React from 'react';
 
 import './single-category.styles.scss';
 
-//creo il FC a cui assegno i parametri (presenti da shop-data)per la stampa in pagina dei valori 
+//creo il FC a cui assegno i parametri (presenti in shop-data) per la stampa in pagina dei rispettivi valori 
 const SingleCategory = ({image, title, url}) => {
     return(
         <div className="single-category">

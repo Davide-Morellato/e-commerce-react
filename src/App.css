@@ -11,3 +11,13 @@ a{
   text-decoration: none;
   color: black;
 }
+
+.App{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .homepage{
+    flex-grow: 1;
+  }
+}

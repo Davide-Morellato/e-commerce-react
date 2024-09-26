@@ -15,8 +15,10 @@ const Header = () => {
         <Logo className="logo" />
       </a>
       <div className="options">
+        {/* inserisco i links con i rispettivi percorsi */}
         <a className="option_item" href="/shop">Shop</a>
         <a className="option_item" href="/login">Login</a>
+        {/* inserisco l'icona carrello */}
         <div className="cart">
             <img src={ShoppingCartItem} className="cart_icon" alt="cart" />
             <span className="item_counter">0</span>

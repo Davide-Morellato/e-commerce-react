@@ -3,25 +3,25 @@ export const categories = [
     {
         title:'smartphone',
         id: 1,
-        image: 'https://i.ibb.co/PwQgpF1/pexels-photo-1310534.jpg',
+        image: './categories_images/smartphone.jpg',
         url: 'shop/smartphone'
     },
     {
         title:'tablet',
         id: 2,
-        image: 'https://i.ibb.co/jf53XMQ/pexels-photo-1334597.jpg',
+        image: './categories_images/tablet.jpg',
         url: 'shop/tablet'
     },
     {
         title:'accessori',
         id: 3,
-        image: 'https://i.ibb.co/FYY922S/pexels-photo-1209435.jpg',
+        image: './categories_images/mobile-accessories.jpg',
         url: 'shop/accessori'
     },
     {
         title:'fotocamere',
         id: 4,
-        image: 'https://i.ibb.co/vjkJwFB/pexels-photo-593324.jpg',
+        image: './categories_images/photocameras.jpg',
         url: 'shop/fotocamere'
     }
 ]

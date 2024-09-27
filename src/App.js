@@ -6,14 +6,29 @@ import Checkout from "./pages/checkout/checkout.component"; //importo la cassa
 import Articles from "./pages/articles/articles.component"; //importo gli articoli
 import Login from "./pages/login/login.component"; //importo il login
 
-import { Routes, Route } from "react-router-dom"; //importo le rotte
+import { Routes, Route, Navigate } from "react-router-dom"; //importo le rotte
+import { useEffect, useState } from "react"; //importo lo state
+import {auth} from '../src/firebase/firebase.data' //importo il metodo di autenticazione
 
 
 function App() {
+
+  //definisco lo stato dell'utente, impostandolo su null di default
+  const [user, setUser] = useState(null);
+
+  //metodo di autenticazione per aggiornare il componente al cambio di stato una sola volta all'avvio dell'applicazione: useEffect(()=>{...},[])
+  useEffect(() =>{
+    auth.onAuthStateChanged(userAuth => {
+      setUser(userAuth)
+    })
+  }, [])
+
+
   return (
     <div className="App">
-      {/* inserisco il component header */}
-      <Header />
+      {/* inserisco il component Header */}
+      {/* aggiungo al componente Header il parametro user */}
+      <Header user={user} />
 
       {/* inserisco il componente Routes, al cui interno inserisco le singole rotte (Route) con il percorso (path) e l'elemento da dover visualizzare (element={componente})*/}
       <Routes>
@@ -21,7 +36,10 @@ function App() {
         {/* imposto il percorso (/shop) indicizzato in base alla sotto-rotta impostata all'interno del componente Articles (/shop/*) */}
         <Route path="/shop/*" element={<Articles/>}/> 
         <Route path="/checkout" element={<Checkout/>}/>
-        <Route path="/login" element={<Login/>}/>
+        
+        {/* modifico la rotta controllando se user è loggato o meno */}
+        {/* SE user diverso da null, ALLORA redirect alla Homepage (/), ALTRIMENTI alla pagina di Login */}
+        <Route path="/login" element={user !== null ? (<Navigate to='/' />) : (<Login/>)}/>
       </Routes>
       {/* inserisco il componente homepage */}
       {/* <Homepage /> */}

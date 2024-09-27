@@ -1,5 +1,8 @@
 import React, { useState } from "react"; //importo lo State per apportare le modifiche al componente
+import {auth} from '../../firebase/firebase.data' //importo il metodo di autenticazione
+
 import './login-form.styles.scss'
+
 
 const LoginForm = () => {
 
@@ -13,7 +16,13 @@ const LoginForm = () => {
     const {email, password} = credentials;
 
     //prevengo il comportamento di default del form, così da inviare i dati a firebase
-    const sendData = event => {event.preventDefault()};
+    //trasformo la funzione in asincrona ed aggiungo l'operatore await per il metodo di login di firebase
+    const sendData = async event => {
+        event.preventDefault()
+        
+        //dichiaro il metodo firebase per l'acquisizione dei valori di credentials
+        const login = await auth.signInWithEmailAndPassword(email, password);
+    };
 
     //definisco che il cambiamento (event) deve avere come target l'input in cui il cambiamento stesso avviene
     const handleChange = event => {

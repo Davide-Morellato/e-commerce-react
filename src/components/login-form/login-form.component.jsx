@@ -1,5 +1,5 @@
 import React, { useState } from "react"; //importo lo State per apportare le modifiche al componente
-import {auth} from '../../firebase/firebase.data' //importo il metodo di autenticazione
+import {auth, signInWithGoogle} from '../../firebase/firebase.data' //importo il metodo di autenticazione
 
 import './login-form.styles.scss'
 
@@ -19,9 +19,14 @@ const LoginForm = () => {
     //trasformo la funzione in asincrona ed aggiungo l'operatore await per il metodo di login di firebase
     const sendData = async event => {
         event.preventDefault()
-        
         //dichiaro il metodo firebase per l'acquisizione dei valori di credentials
         const login = await auth.signInWithEmailAndPassword(email, password);
+    };
+
+    //dichiaro una funzione asincrona per il login con google
+    //non verranno passati parametri, perchè ci sarà il prompt per la scelta di utente e password
+    const loginGoogle = async () => {
+        await signInWithGoogle()
     };
 
     //definisco che il cambiamento (event) deve avere come target l'input in cui il cambiamento stesso avviene
@@ -52,7 +57,11 @@ const LoginForm = () => {
                     {/* associo il valore che verrà associato nella proprietà di credentials, così da settarlo con handleChange in setCredentials */}
                     <input type="password" name="password" value={password} onChange={handleChange} required/>
 
-                    <button type="submit" className="login_button">Login</button>
+                    {/* aggiungo il login anche con google, con evento al click */}
+                    <div className="choose_access">
+                        <button type="submit" className="login_button">Login</button>
+                        <button type="button" className="login_button google_login" onClick={loginGoogle}> <img src="./icons/google_icon.png" alt="google_icon" /> Google Login </button>
+                    </div>
                 </div>
             </form>
         </div>

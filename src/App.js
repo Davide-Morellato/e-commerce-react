@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState(null);
 
   //metodo di autenticazione per aggiornare il componente al cambio di stato una sola volta all'avvio dell'applicazione: useEffect(()=>{...},[])
+  //userAuth contiene tutte le informazioni dell'utente loggato, così da poterle - eventualmente - salvare in un database 
   useEffect(() =>{
     auth.onAuthStateChanged(userAuth => {
       setUser(userAuth)

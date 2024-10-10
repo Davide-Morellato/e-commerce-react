@@ -6,13 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter } from "react-router-dom"; //importo le rotte
 
+import { store } from "./redux/store"; //importo lo store
+import { Provider } from "react-redux"; //importo il Provider
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* inserisco il BrowserRouter */}
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    {/* aggiungo il Provider a cui passo come attributo lo store */}
+    <Provider store={store}>
+      {/* inserisco il BrowserRouter */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

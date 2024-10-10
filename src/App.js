@@ -8,7 +8,8 @@ import Login from "./pages/login/login.component"; //importo il login
 
 import { Routes, Route, Navigate } from "react-router-dom"; //importo le rotte
 import { useEffect, useState } from "react"; //importo lo state
-import {auth} from '../src/firebase/firebase.data' //importo il metodo di autenticazione
+import {auth, productsIntoDatabase} from '../src/firebase/firebase.data' //importo il metodo di autenticazione
+import { categories } from "./shop-data";
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
     auth.onAuthStateChanged(userAuth => {
       setUser(userAuth)
     })
+
+    //aggiungo la funzione per la creazione del nuovo documento, importata da firebase.data.js
+    // productsIntoDatabase(categories);
   }, [])
 
 

@@ -24,8 +24,8 @@ const RegistrationForm =() => {
         //creo l'utente prendendo come valori di riferimento l'email e la password
         const register = await auth.createUserWithEmailAndPassword(email, password);
 
-        //salvo i dati inseriti dall'utente durante la fase di registrazione
-        getUserProfile = (register.user, {name, surname})
+        //salvo i dati inseriti dall'utente durante la fase di registrazione, con le informazioni aggiuntive
+        getUserProfile(register.user, {name, surname});
     };
 
     //definisco l'input come target dell'evento di cambiamento

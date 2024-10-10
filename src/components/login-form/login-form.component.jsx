@@ -28,14 +28,14 @@ const LoginForm = () => {
     const loginGoogle = async () => {
         // await signInWithGoogle();
         //salvo in una variabile i dati di login con google
-        const userLogin = await signInWithGoogle()
+        const userLogin = await signInWithGoogle();
 
         //variabile in cui associo i valori dei dati di google (family_name & given_name) al profilo dell'utente
         const {family_name, given_name} = userLogin.additionalUserInfo.profile;
 
         //salvo i dati inseriti dall'utente durante il login con google
         //NB assegno nuove proprietà ai parametri di google
-        getUserProfile(userLogin.user,{
+        getUserProfile(userLogin.user, {
             surname: family_name,
             name: given_name
         })

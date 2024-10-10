@@ -1,5 +1,5 @@
 import React, { useState } from "react"; //importo l'HOOK useState
-import {auth} from '../../firebase/firebase.data' //importo il metodo di autenticazione
+import {auth, getUserProfile} from '../../firebase/firebase.data' //importo il metodo di autenticazione e il reucpero informazioni utente
 
 import './registration-form.styles.scss';
 
@@ -19,10 +19,13 @@ const RegistrationForm =() => {
     //prevengo il comportamento di default del form
     //trasformo la funzione in asincrona
     const sendData = async event => {
-        event.preventDefault()
+        event.preventDefault();
 
         //creo l'utente prendendo come valori di riferimento l'email e la password
-        const register = await auth.createUserWithEmailAndPassword(email, password)
+        const register = await auth.createUserWithEmailAndPassword(email, password);
+
+        //salvo i dati inseriti dall'utente durante la fase di registrazione
+        getUserProfile = (register.user, {name, surname})
     };
 
     //definisco l'input come target dell'evento di cambiamento

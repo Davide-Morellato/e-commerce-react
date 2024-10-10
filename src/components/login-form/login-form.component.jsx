@@ -1,5 +1,5 @@
 import React, { useState } from "react"; //importo lo State per apportare le modifiche al componente
-import {auth, signInWithGoogle} from '../../firebase/firebase.data' //importo il metodo di autenticazione
+import {auth, signInWithGoogle, getUserProfile} from '../../firebase/firebase.data' //importo il metodo di autenticazione
 
 import './login-form.styles.scss'
 
@@ -18,7 +18,7 @@ const LoginForm = () => {
     //prevengo il comportamento di default del form, così da inviare i dati a firebase
     //trasformo la funzione in asincrona ed aggiungo l'operatore await per il metodo di login di firebase
     const sendData = async event => {
-        event.preventDefault()
+        event.preventDefault();
         //dichiaro il metodo firebase per l'acquisizione dei valori di credentials
         const login = await auth.signInWithEmailAndPassword(email, password);
     };
@@ -26,7 +26,19 @@ const LoginForm = () => {
     //dichiaro una funzione asincrona per il login con google
     //non verranno passati parametri, perchè ci sarà il prompt per la scelta di utente e password
     const loginGoogle = async () => {
-        await signInWithGoogle()
+        // await signInWithGoogle();
+        //salvo in una variabile i dati di login con google
+        const userLogin = await signInWithGoogle()
+
+        //variabile in cui associo i valori dei dati di google (family_name & given_name) al profilo dell'utente
+        const {family_name, given_name} = userLogin.additionalUserInfo.profile;
+
+        //salvo i dati inseriti dall'utente durante il login con google
+        //NB assegno nuove proprietà ai parametri di google
+        getUserProfile(userLogin.user,{
+            surname: family_name,
+            name: given_name
+        })
     };
 
     //definisco che il cambiamento (event) deve avere come target l'input in cui il cambiamento stesso avviene

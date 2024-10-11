@@ -7,12 +7,12 @@ const INITIAL_STATE = {
 
 
 //dichiaro un blocco condizionale per verificare lo state e le azioni da intraprendere
-const UserReducer = (state = INITIAL_STATE, action) => {
+export const UserReducer = (state = INITIAL_STATE, action) => {
 
     //action, in questo caso, corrisponde a checkUserLog [dichiatata in user.actions.js]
     //quindi si basa sul controllo sia della proprietà type sia della proprietà payload in checkUserLog
     switch (action.type) {
-        
+
       case UserActionTypes.CHECK_USER_LOG: //IN CASO il controllo dell'utente risultasse vero, quindi l'utente è loggato
       case UserActionTypes.LOG_IN:         //OPPURE risulta un log-in
         return {                           //ALLORA ritorna un oggetto contenente:
@@ -30,5 +30,3 @@ const UserReducer = (state = INITIAL_STATE, action) => {
         return state;                      //RITORNA lo state nel suo stato iniziale (INITIAL_STATE = null)
     }
 }
-
-export default UserReducer;

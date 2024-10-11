@@ -10,11 +10,19 @@ import "./header.styles.scss"; //importo il foglio di stile
 import IconShop from "../../assets/img/online-shopping.png";
 import ShoppingCartItem from "../../assets/img/shopping-cart.png"; //importo l'icona del carrello
 
-//applico il parametro user per la lettura del valore
-const Header = ({ user }) => {
+import { logOut } from "../../redux/user/user.actions"; //importo la funzione per il logout dell'utente (user.actions.js)
+import { connect } from "react-redux"; //importo il metodo connect che collega un componente React a uno store Redux.
+
+//applico due parametri:
+//user per la lettura del valore
+//setLogOut per sovrascrivere il valore in caso di disconnessione dell'utente
+const Header = ({ user, setLogOut }) => {
   //definisco il metodo logout di firebase
   const logout = () => {
     auth.signOut();
+
+    //invoco la funzione setLogout() per svuotare lo state
+    setLogOut();
   };
 
 
@@ -52,4 +60,22 @@ const Header = ({ user }) => {
   );
 };
 
-export default Header;
+
+//funzione per mappare lo state globale di redux
+const mapStateToProps = (state) => ({
+  //definisco la proprietà user in base allo state in UserReducer
+  //quindi controllandone la proprietà loggedUser in base allo user
+  user: state.user.loggedUser
+})
+
+
+//funzione per salvare i dati nello state
+const mapDispatchToProps = (dispatch) => ({
+  //imposto l'azione da intraprendere in base al logout dell'utente
+  //NB dispatch è un metodo per la distribuzione delle azioni per innescare modifiche nello state
+  setLogOut: () => dispatch(logOut())
+})
+
+//inserisco la funzione connect sfruttando la currying function,
+//così da prendere i valori necessari dallo state e passarli all'Header
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

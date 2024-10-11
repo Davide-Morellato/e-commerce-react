@@ -16,10 +16,11 @@ import { connect } from "react-redux"; //importo il metodo connect che collega u
                                        //Fornisce al componente connesso i dati di cui ha bisogno dallo store e le funzioni che può utilizzare per inviare azioni allo store.
 import { checkUserLog } from "./redux/user/user.actions"; //importo l'action che contiene le azioni da inviare a redux
 
-//aggiungo le props di riferimento:
+//aggiungo le props di riferimento che vengono passate da connect, in base ai parametri su cui si basa:
 //user -> per leggere lo state
 //setLoggedUser -> per scrivere lo state 
 function App({user, setLoggedUser}) {
+
   //definisco lo stato dell'utente, impostandolo su null di default
   // const [user, setUser] = useState(null);
 

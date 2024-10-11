@@ -1,10 +1,12 @@
 import React, { useState } from "react"; //importo lo State per apportare le modifiche al componente
 import {auth, signInWithGoogle, getUserProfile} from '../../firebase/firebase.data' //importo il metodo di autenticazione
+import { connect } from "react-redux"; //importo la funzione connect per collegare un componente React ad uno store Redux
+import { logIn } from "../../redux/user/user.actions";//importo la funzione da svolgere in caso di login dell'utente (user.actions.js)
 
 import './login-form.styles.scss'
 
-
-const LoginForm = () => {
+//applico la props di controllo per impostare il login (in base alla funzione mapDispatchToProps)
+const LoginForm = ({setLogin}) => {
 
     //definisco lo state impostando i parametri di riferimento
     const [credentials, setCredentials] = useState({
@@ -21,6 +23,10 @@ const LoginForm = () => {
         event.preventDefault();
         //dichiaro il metodo firebase per l'acquisizione dei valori di credentials
         const login = await auth.signInWithEmailAndPassword(email, password);
+
+        //aggiungo il settaggio del login
+        //in base alle credenziali dell'utente presenti in firebase
+        setLogin(login.user)
     };
 
     //dichiaro una funzione asincrona per il login con google
@@ -39,6 +45,11 @@ const LoginForm = () => {
             surname: family_name,
             name: given_name
         })
+        
+        //aggiungo il settaggio del login
+        //in base alle credenziali dell'utente presenti in firebase
+        setLogin(userLogin.user)
+
     };
 
     //definisco che il cambiamento (event) deve avere come target l'input in cui il cambiamento stesso avviene
@@ -80,4 +91,10 @@ const LoginForm = () => {
     )
 };
 
-export default LoginForm;
+//funzione per salvare i dati nello state
+const mapDispatchToProps = (dispatch) =>({
+    //azione da intraprendere se l'utente esegue il login
+    setLogin: (user) => dispatch(logIn(user))
+})
+
+export default connect(null,mapDispatchToProps)(LoginForm);

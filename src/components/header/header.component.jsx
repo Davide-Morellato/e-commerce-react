@@ -10,7 +10,7 @@ import "./header.styles.scss"; //importo il foglio di stile
 import IconShop from "../../assets/img/online-shopping.png";
 import ShoppingCartItem from "../../assets/img/shopping-cart.png"; //importo l'icona del carrello
 
-import { logOut } from "../../redux/user/user.actions"; //importo la funzione per il logout dell'utente (user.actions.js)
+import { logOut } from "../../redux/user/user.actions"; //importo la funzione per l'azione da svolgere in caso di logout dell'utente (user.actions.js)
 import { connect } from "react-redux"; //importo il metodo connect che collega un componente React a uno store Redux.
 
 //applico due parametri:

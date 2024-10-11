@@ -5,7 +5,6 @@ import {UserReducer} from "./user/user.reducer"; //importo il reducer per l'uten
 const rootReducer = combineReducers({
     //inserisco il reducer per l'utente
     user: UserReducer
-
 });
 
 export default rootReducer;

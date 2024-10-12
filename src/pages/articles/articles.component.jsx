@@ -30,7 +30,7 @@ const Articles = () => {
         {/* se viene specificata una categoria in particolare, allora visualizza quel prodotto */}
         {/* <Route path=":category" element={<ArticlesCategory/>} /> */}
         {/* sostituisco il componente ArticlesCategory con il componente associato al caricamento */}
-        <Route path="" element={<LoadingArticlesCategory loading={loading}/>} />
+        <Route path=":category" element={<LoadingArticlesCategory loading={loading}/>} />
       </Routes>
     </div>
   );

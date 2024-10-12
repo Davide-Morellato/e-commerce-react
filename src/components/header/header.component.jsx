@@ -56,6 +56,12 @@ const Header = ({ user, setLogOut }) => {
           <span className="item_counter">0</span>
         </div>
       </div>
+      <div className="cart_dropdown_menu">
+        <div className="cart_items">
+          <span className="empty_mex"> CARRELLO VUOTO </span>
+        </div>
+        <button> CASSA </button>
+      </div>
     </div>
   );
 };

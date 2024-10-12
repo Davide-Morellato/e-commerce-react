@@ -1,0 +1,13 @@
+.overview_articles_category{
+    margin-top: 50px;
+
+    .title_articles_category{
+        text-transform: uppercase;
+    }
+
+    .articles_category_list{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+    }
+}

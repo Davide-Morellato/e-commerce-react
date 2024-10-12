@@ -1,0 +1,14 @@
+.overview_articles{
+    margin: 50px 0 0 50px;
+
+    .title_articles{
+        text-transform: uppercase;
+    }
+
+    .articles_list{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+        gap: 15px 15px;
+    }
+}

@@ -8,7 +8,7 @@ import { auth } from "../../firebase/firebase.data"; //importo il metodo di aute
 
 import "./header.styles.scss"; //importo il foglio di stile
 import IconShop from "../../assets/img/online-shopping.png";
-import ShoppingCartItem from "../../assets/img/shopping-cart.png"; //importo l'icona del carrello
+// import ShoppingCartItem from "../../assets/img/shopping-cart.png"; //importo l'icona del carrello
 
 import { logOut } from "../../redux/user/user.actions"; //importo la funzione per l'azione da svolgere in caso di logout dell'utente (user.actions.js)
 import { connect } from "react-redux"; //importo il metodo connect che collega un componente React a uno store Redux.
@@ -60,6 +60,7 @@ const Header = ({ user, setLogOut, hiddenCart, toggleCart }) => {
           <span className="item_counter">0</span>
         </div> */}
       </div>
+
       {
         //SE hiddenCart non è cambiato
           //ALLORA (?) non fare nulla
@@ -67,12 +68,14 @@ const Header = ({ user, setLogOut, hiddenCart, toggleCart }) => {
         hiddenCart
         ? null
         : (<div className="cart_dropdown_menu">
+            {/* SPOSTATO NEL COMPONENTE DROPDOWNCART
             <div className="cart_items">
               <span className="empty_mex"> CARRELLO VUOTO </span>
             </div>
-            <button> CASSA </button>
+            <button> CASSA </button> */}
           </div>)
       }
+
     </div>
   );
 };

@@ -27,28 +27,28 @@
     }
   }
 
-  .cart {
-    width: 48px;
-    height: 48px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  // .cart {
+  //   width: 48px;
+  //   height: 48px;
+  //   position: relative;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   cursor: pointer;
 
-    .cart_icon {
-      width: 30px;
-      height: 30px;
-    }
+  //   .cart_icon {
+  //     width: 30px;
+  //     height: 30px;
+  //   }
 
-    .item_counter {
-      position: absolute;
-      font-size: 10px;
-      font-weight: bold;
-      top: 3px;
-      left: 24px;
-    }
-  }
+  //   .item_counter {
+  //     position: absolute;
+  //     font-size: 10px;
+  //     font-weight: bold;
+  //     top: 3px;
+  //     left: 24px;
+  //   }
+  // }
 
   .cart_dropdown_menu{
     position: absolute;

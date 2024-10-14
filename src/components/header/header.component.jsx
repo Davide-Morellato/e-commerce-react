@@ -54,11 +54,11 @@ const Header = ({ user, setLogOut, hiddenCart, toggleCart }) => {
             <Link className="option_item" to="/login">Login</Link>
           )
         }
-        {/* inserisco l'icona carrello */}
-        <div className="cart" onClick={toggleCart}>
+        {/* inserisco l'icona carrello -> SPOSTATO NEL COMPOENENTE CARTICON */}
+        {/* <div className="cart" onClick={toggleCart}>
           <img src={ShoppingCartItem} className="cart_icon" alt="cart" />
           <span className="item_counter">0</span>
-        </div>
+        </div> */}
       </div>
       {
         //SE hiddenCart non è cambiato

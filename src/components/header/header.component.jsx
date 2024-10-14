@@ -13,10 +13,14 @@ import ShoppingCartItem from "../../assets/img/shopping-cart.png"; //importo l'i
 import { logOut } from "../../redux/user/user.actions"; //importo la funzione per l'azione da svolgere in caso di logout dell'utente (user.actions.js)
 import { connect } from "react-redux"; //importo il metodo connect che collega un componente React a uno store Redux.
 
+import { toggleCart } from "../../redux/cart/cart.actions"; //importo la funzione d'azione del carrello
+
 //applico due parametri:
 //user per la lettura del valore
 //setLogOut per sovrascrivere il valore in caso di disconnessione dell'utente
-const Header = ({ user, setLogOut }) => {
+//hiddenCart per lo state iniziale del carrello al click (nascosto)
+//toggleCart per cambiare lo state del carrello
+const Header = ({ user, setLogOut, hiddenCart, toggleCart }) => {
   //definisco il metodo logout di firebase
   const logout = () => {
     auth.signOut();
@@ -51,17 +55,24 @@ const Header = ({ user, setLogOut }) => {
           )
         }
         {/* inserisco l'icona carrello */}
-        <div className="cart">
+        <div className="cart" onClick={toggleCart}>
           <img src={ShoppingCartItem} className="cart_icon" alt="cart" />
           <span className="item_counter">0</span>
         </div>
       </div>
-      <div className="cart_dropdown_menu">
-        <div className="cart_items">
-          <span className="empty_mex"> CARRELLO VUOTO </span>
-        </div>
-        <button> CASSA </button>
-      </div>
+      {
+        //SE hiddenCart non è cambiato
+          //ALLORA (?) non fare nulla
+        //ALTRIMENTI (:) mostra il dropdown menu
+        hiddenCart
+        ? null
+        : (<div className="cart_dropdown_menu">
+            <div className="cart_items">
+              <span className="empty_mex"> CARRELLO VUOTO </span>
+            </div>
+            <button> CASSA </button>
+          </div>)
+      }
     </div>
   );
 };
@@ -71,7 +82,10 @@ const Header = ({ user, setLogOut }) => {
 const mapStateToProps = (state) => ({
   //definisco la proprietà user in base allo state in UserReducer
   //quindi controllandone la proprietà loggedUser in base allo user
-  user: state.user.loggedUser
+  user: state.user.loggedUser,
+
+  //aggiungo la proprietà hiddenCart
+  hiddenCart: state.cart.hidden
 })
 
 
@@ -79,7 +93,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   //imposto l'azione da intraprendere in base al logout dell'utente
   //NB dispatch è un metodo per la distribuzione delle azioni per innescare modifiche nello state
-  setLogOut: () => dispatch(logOut())
+  setLogOut: () => dispatch(logOut()),
+
+  //aggiungo l'azione per cambiare il toggle del carrello
+  toggleCart: () => dispatch(toggleCart())
 })
 
 //inserisco la funzione connect sfruttando la currying function,

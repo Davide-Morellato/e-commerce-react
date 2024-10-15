@@ -7,7 +7,7 @@ import './single-item.styles.scss';
 const SingleItem = ({image, name, price, quantity}) => {
     return(
         <div className="single-item">
-            <img src="./items_images/smartphones/smatphone_1.jpg" alt="single_item" />
+            <img src="./items_images/smartphones/smartphone_1.jpg" alt="single_item" />
             <div className="details">
                 <span className="name">
                     Smartphone

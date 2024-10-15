@@ -14,6 +14,9 @@ import { logOut } from "../../redux/user/user.actions"; //importo la funzione pe
 import { connect } from "react-redux"; //importo il metodo connect che collega un componente React a uno store Redux.
 
 import { toggleCart } from "../../redux/cart/cart.actions"; //importo la funzione d'azione del carrello
+import CartIcon from '../../components/cart-icon/cart-icon.component' //importo il componente CartIcon
+import DropdownCart from '../../components/dropdown-cart/dropdown-cart.component' //importo il componente DropdownCart
+
 
 //applico due parametri:
 //user per la lettura del valore
@@ -39,10 +42,13 @@ const Header = ({ user, setLogOut, hiddenCart, toggleCart }) => {
       </Link>
 
       <div className="options">
-        {/* inserisco i links con i rispettivi percorsi */}
         <Link className="option_item" to="/shop">
           Shop
         </Link>
+
+        {/* inserisco i links con i rispettivi percorsi */}
+      <CartIcon />
+
         {/* applico un controllo */}
         {
           //SE il valore di user è diverso da null
@@ -61,6 +67,7 @@ const Header = ({ user, setLogOut, hiddenCart, toggleCart }) => {
         </div> */}
       </div>
 
+
       {
         //SE hiddenCart non è cambiato
           //ALLORA (?) non fare nulla
@@ -73,6 +80,8 @@ const Header = ({ user, setLogOut, hiddenCart, toggleCart }) => {
               <span className="empty_mex"> CARRELLO VUOTO </span>
             </div>
             <button> CASSA </button> */}
+            {/* inserisco il compontente DropdownCart */}
+            <DropdownCart />
           </div>)
       }
 

@@ -9,31 +9,31 @@ export const categories = [
             {
                 id: 1,
                 name: 'Smartphone n. 1',
-                imageUrl: './items_images/smartphones/smatphone_1.jpg',
+                imageUrl: './items_images/smartphones/smartphone_1.jpg',
                 price: 250
             },
             {
                 id: 2,
                 name: 'Smartphone n. 2',
-                imageUrl: './items_images/smartphones/smatphone_2.jpg',
+                imageUrl: './items_images/smartphones/smartphone_2.jpg',
                 price: 300
             },
             {
                 id: 3,
                 name: 'Smartphone n. 3',
-                imageUrl: './items_images/smartphones/smatphone_3.jpg',
+                imageUrl: './items_images/smartphones/smartphone_3.jpg',
                 price: 800
             },
             {
                 id: 4,
                 name: 'Smartphone n. 4',
-                imageUrl: './items_images/smartphones/smatphone_4.jpg',
+                imageUrl: './items_images/smartphones/smartphone_4.jpg',
                 price: 350
             },
             {
                 id: 5,
                 name: 'Smartphone n. 5',
-                imageUrl: './items_images/smartphones/smatphone_5.jpeg',
+                imageUrl: './items_images/smartphones/smartphone_5.jpeg',
                 price: 999
             }
         ]

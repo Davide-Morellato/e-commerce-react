@@ -2,13 +2,13 @@ import React from "react";
 import Article from "../single_article/single-article.component"; //importo il componente per il singolo articolo
 import './overview-articles.styles.scss';
 import { useSelector } from "react-redux"; //importo l'HOOK per il recupero del selettore
-import { selectProducts } from "../../redux/articles/articles.selectors"; //importo la funzione per il selettore prodotti di articles.selectors.js
+import { selectProductsArticles } from "../../redux/articles/articles.selectors"; //importo la funzione per il selettore prodotti di articles.selectors.js
 
 
 const OverviewArticles = () => {
 
     //dichiaro una variabile in cui salvare il selettore pr il recupero degli articoli (creata in articles.selectors.js)
-    const articles = useSelector(selectProducts)
+    const articles = useSelector(selectProductsArticles)
     return(
         <div className="overview_articles">
             {

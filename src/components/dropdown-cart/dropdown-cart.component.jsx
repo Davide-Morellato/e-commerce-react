@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; //per la navigazione tra pagine
-
+import SingleItem from '../single-item/single-item.component' //importo il componente SingleItem
 import './dropdown-cart.styles.scss';
 
 const DropdownCart = () => {
@@ -11,7 +11,8 @@ const DropdownCart = () => {
     return(
         <div className="dropdown-cart">
             <div className="cart_items">
-              <span className="empty_mex"> CARRELLO VUOTO </span>
+                <SingleItem />
+              {/* <span className="empty_mex"> CARRELLO VUOTO </span> */}
             </div>
             {/* aggiungo l'evento al click di navigazione per il checkout
                 NB -> /checkout dichiarata in App.js*/}

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import './checkout.styles.scss'
 import { useDispatch } from "react-redux";
-import { toggleCart } from "../../redux/cart/cart.actions"; //importo la funzione per il controllo dell'apertura/chiusura del carrello
+import { closeCart } from "../../redux/cart/cart.actions"; //importo la funzione per il controllo dell'apertura/chiusura del carrello
 import CartItem from '../../components/cart-item/cart-item.component' //importo il componente CartItem
 
 
@@ -11,10 +11,12 @@ const Checkout = () => {
     //salvo l'HOOK per il recupero delle funzioni
     const dispatch = useDispatch();
 
-    //richiamo la funzione toggleCart grazie al dispatch
+    //richiamo la funzione closeCart grazie al dispatch
     useEffect(() => {
-        dispatch(toggleCart())
+        dispatch(closeCart())
     }, [dispatch])
+
+
 
 
     return(

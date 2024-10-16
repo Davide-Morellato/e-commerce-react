@@ -1,7 +1,7 @@
 import React from "react";
 import './single-article.styles.scss';
 import { useDispatch } from "react-redux";
-import addProduct from '../../redux/cart/cart.utilities'
+import { addProduct } from '../../redux/cart/cart.utilities'
 
 //aggiungo un parametro per recuperare le imamgini dei prodotti da categories [documento salvato in firestore]
 const Article = (article) => {

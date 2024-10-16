@@ -1,6 +1,6 @@
 import { CartActionTypes } from "./cart.types";
-import addProduct from './cart.utilities' //importo la funzione da cart.utilities.js
-import removeProduct from './cart.utilities' //importo la funzione da cart.utilities.js
+import {addProduct} from './cart.utilities' //importo la funzione da cart.utilities.js
+import {removeProduct} from './cart.utilities' //importo la funzione da cart.utilities.js
 
 //definisco lo state iniziale del menu come nascosto all'inizio
 //definisco lo state degli articoli nel carrello con un array vuoto

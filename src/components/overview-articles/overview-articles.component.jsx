@@ -8,7 +8,8 @@ import { selectProductsArticles } from "../../redux/articles/articles.selectors"
 const OverviewArticles = () => {
 
     //dichiaro una variabile in cui salvare il selettore pr il recupero degli articoli (creata in articles.selectors.js)
-    const articles = useSelector(selectProductsArticles)
+    const articles = useSelector(selectProductsArticles);
+
     return(
         <div className="overview_articles">
             {
@@ -35,10 +36,8 @@ const OverviewArticles = () => {
                         </div>
                     )
                 })
-            }
-            
-        </div>
-        
+            }  
+        </div> 
     )
 }
 

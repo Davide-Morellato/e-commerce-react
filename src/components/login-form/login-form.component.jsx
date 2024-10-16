@@ -4,6 +4,7 @@ import { connect } from "react-redux"; //importo la funzione connect per collega
 import { logIn } from "../../redux/user/user.actions";//importo la funzione da svolgere in caso di login dell'utente (user.actions.js)
 
 import './login-form.styles.scss'
+import { Button } from "../../styled-components/button"; //importo il componente per lo stile
 
 //applico la props di controllo per impostare il login (in base alla funzione mapDispatchToProps)
 const LoginForm = ({setLogin}) => {
@@ -81,9 +82,10 @@ const LoginForm = ({setLogin}) => {
                     <input type="password" name="password" value={password} onChange={handleChange} required/>
 
                     {/* aggiungo il login anche con google, con evento al click */}
+                    {/* sostituisco il tag HTML con lo styled-component */}
                     <div className="choose_access">
-                        <button type="submit" className="login_button">Login</button>
-                        <button type="button" className="login_button google_login" onClick={loginGoogle}> <img src="./icons/google_icon.png" alt="google_icon" /> Google Login </button>
+                        <Button type="submit" className="login_button">Login</Button>
+                        <Button type="button" className="login_button google_login" onClick={loginGoogle}> <img src="./icons/google_icon.png" alt="google_icon" /> Google Login </Button>
                     </div>
                 </div>
             </form>

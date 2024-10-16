@@ -4,7 +4,7 @@
 //gli passo 2 parametri:
 //cartProducts: controlla lo state del carrello, per capire se ci sono prodotti al suo interno
 //addingProduct: per l'aggiunta/incremento di un determinato prodotto
-export const addProduct = (cartProducts, addingProduct) => {
+const addProduct = (cartProducts, addingProduct) => {
 
   //verifico se il singolo prodotto è presente nel carrello tramite il metodo find(),
   //a cui passo una callback in cui prendo il prodotto e dichiaro che quel prodotto (identificato tramite l'id) deve corrispondere al prodotto da aggiungere/incrementare
@@ -46,27 +46,29 @@ export const addProduct = (cartProducts, addingProduct) => {
 //gli passo 2 parametri:
 //cartProducts: controlla lo state del carrello, per capire se ci sono prodotti al suo interno
 //removingProduct: per la rimozione di un determinato prodotto
-export const removeProduct = (cartProducts, removingProduct) => {
+const removeProduct = (cartProducts, removingProduct) => {
 
-    //verifico se il singolo prodotto è presente nel carrello tramite il metodo find(),
-    //a cui passo una callback in cui prendo il prodotto e dichiaro che quel prodotto (identificato tramite l'id) deve corrispondere al prodotto da rimuovere
-    const singleCartProduct = cartProducts.find((product) => product.id === removingProduct.id);
+  //verifico se il singolo prodotto è presente nel carrello tramite il metodo find(),
+  //a cui passo una callback in cui prendo il prodotto e dichiaro che quel prodotto (identificato tramite l'id) deve corrispondere al prodotto da rimuovere
+  const singleCartProduct = cartProducts.find((product) => product.id === removingProduct.id);
 
-    //controllo 
-    //SE il singolo prodotto ha una quantità pari a 1
-        //ALLORA è necessario filtrare i prodotti nel carrello per differenziare gli altri prodotti (identificati in base all'id) dal prodotto da rimuovere
-    if(singleCartProduct.quantity === 1){
-        return cartProducts.filter(product => product.id !== removingProduct.id)
-    }
+  //controllo 
+  //SE il singolo prodotto ha una quantità pari a 1
+      //ALLORA è necessario filtrare i prodotti nel carrello per differenziare gli altri prodotti (identificati in base all'id) dal prodotto da rimuovere
+  if(singleCartProduct.quantity === 1){
+      return cartProducts.filter(product => product.id !== removingProduct.id)
+  }
 
-    //se il prodotto esiste e ha una quantità > 1,
-    //restituisci una mappatura dei prodotti nel carrello per identificare il singolo prodotto e ridurne la quantità di 1
-    return cartProducts.map((product) =>
-        product.id === removingProduct.id
-        ?
-        {...product,
-            quantity: product.quantity - 1}
-        :
-        product
-    );
+  //se il prodotto esiste e ha una quantità > 1,
+  //restituisci una mappatura dei prodotti nel carrello per identificare il singolo prodotto e ridurne la quantità di 1
+  return cartProducts.map((product) =>
+      product.id === removingProduct.id
+      ?
+      {...product,
+          quantity: product.quantity - 1}
+      :
+      product
+  );
 }
+
+export default (addProduct, removeProduct);

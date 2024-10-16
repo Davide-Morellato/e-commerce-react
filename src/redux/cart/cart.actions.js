@@ -11,3 +11,29 @@ export const toggleCart = () => ({
 export const closeCart = () => ({
     type: CartActionTypes.CLOSE_CART
 })
+
+//definisco l'azione da eseguire per l'incremento della quantità di un prodotto
+//ha bisogno del parametro per fare in modo di agganciarsi ad un determinato prodotto e non a tutti
+export const addProduct = (product) => ({
+    type: CartActionTypes.CLOSE_CART,
+    payload: product
+})
+
+//definisco l'azione da eseguire per la riduzione della quantità di un prodotto
+//ha bisogno del parametro per fare in modo di agganciarsi ad un determinato prodotto e non a tutti
+export const removeProduct = (product) => ({
+    type: CartActionTypes.CLOSE_CART,
+    payload: product
+})
+
+//definisco l'azione da eseguire per l'elimininazione di un prodotto
+//ha bisogno del parametro per fare in modo di agganciarsi ad un determinato prodotto e non a tutti
+export const deleteProduct = (product) => ({
+    type: CartActionTypes.CLOSE_CART,
+    payload: product
+})
+
+//definisco l'azione da eseguire per svuotare il carrello
+export const emptyCart = () => ({
+    type: CartActionTypes.CLOSE_CART
+})

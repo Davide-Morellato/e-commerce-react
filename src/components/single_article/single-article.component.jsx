@@ -21,7 +21,3 @@ const Article = (article) => {
 };
 
 export default Article;
-
-
-
-<div className=""></div>

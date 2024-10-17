@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 import './checkout.styles.scss'
 import { useDispatch, useSelector } from "react-redux";
-import { closeCart } from "../../redux/cart/cart.actions"; //importo la funzione per il controllo dell'apertura/chiusura del carrello
+import { closeCart, emptyCart } from "../../redux/cart/cart.actions"; //importo la funzione per il controllo dell'apertura/chiusura del carrello
 import CartItem from '../../components/cart-item/cart-item.component' //importo il componente CartItem
 import { selectCartProducts, selectTotalCart } from "../../redux/cart/cart.selectors"; //importo la funzione del selettore per i prodotti nel carrello & il totale
-
+import { Button } from "../../styled-components/button";
 
 const Checkout = () => {
 
@@ -60,10 +60,15 @@ const Checkout = () => {
                 null
             }
             
-            <div className="total">
-                <span>
-                    TOTAL: {total} €
-                </span>
+            <div className="summary_cart">
+                <div className="empty_cart">
+                    <Button onClick={() => dispatch(emptyCart())}> Clear Cart </Button>
+                </div>
+                <div className="total">
+                    <span>
+                        TOTAL: {total} €
+                    </span>
+                </div>
             </div>
         </div>
     )

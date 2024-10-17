@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 
 //dichiaro un blocco condizionale per verificare lo state e le azioni da intraprendere
-export const UserReducer = (state = INITIAL_STATE, action) => {
+const UserReducer = (state = INITIAL_STATE, action) => {
 
     //action, in questo caso, corrisponde a checkUserLog [dichiatata in user.actions.js]
     //quindi si basa sul controllo sia della proprietà type sia della proprietà payload in checkUserLog
@@ -30,3 +30,6 @@ export const UserReducer = (state = INITIAL_STATE, action) => {
         return state;                      //RITORNA lo state nel suo stato iniziale (INITIAL_STATE = null)
     }
 }
+
+
+export default UserReducer

@@ -5,10 +5,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter } from "react-router-dom"; //importo le rotte
-
-import { store, storePersistance } from "./redux/store"; //importo lo store & la funzione di persistenza dei dati
 import { Provider } from "react-redux"; //importo il Provider
 import { PersistGate } from "redux-persist/integration/react"; //importo il componente che permetterà il persistere dei dati
+import {store, persistor} from "./redux/store"; //importo lo store
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -19,7 +18,7 @@ root.render(
     <Provider store={store}>
       {/* inserisco il BrowserRouter */}
       <BrowserRouter>
-      <PersistGate storePersistance={storePersistance}>
+      <PersistGate persistor={persistor}>
         <App />
       </PersistGate>
       </BrowserRouter>

@@ -17,4 +17,4 @@ const middlewares = [
 //e anche l'applyMiddleware, a cui assegno come parametro l'array per tutti i middlewares (con spread operator perché ho necessità di tutti i valori)
 export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
-export const storePersistance = persistStore(store);
+export const persistor = persistStore(store);

@@ -16,6 +16,11 @@ const DropdownCart = () => {
     return(
         <div className="dropdown-cart">
             <div className="cart_items">
+
+                {/* controllo
+                    SE la lunghezza dell'array dei prodotti è > 0,
+                        ALLORA mappa l'array e identifica i singoli prodotti in base l'id
+                    ALTRIMENTI stampa il messaggio: Carrello Vuoto */}
                 {
                     products.length > 0
                     ?

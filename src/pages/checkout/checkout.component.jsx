@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 
 import './checkout.styles.scss'
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeCart } from "../../redux/cart/cart.actions"; //importo la funzione per il controllo dell'apertura/chiusura del carrello
 import CartItem from '../../components/cart-item/cart-item.component' //importo il componente CartItem
+import { selectCartProducts } from "../../redux/cart/cart.selectors"; //importo la funzione del selettore per i prodotti nel carrello
 
 
 const Checkout = () => {
@@ -16,7 +17,8 @@ const Checkout = () => {
         dispatch(closeCart())
     }, [dispatch])
 
-
+    //salvo in una variabile il selettore
+    const products = useSelector(selectCartProducts);
 
 
     return(
@@ -40,8 +42,21 @@ const Checkout = () => {
                 </div>
             </div>
 
-            <CartItem />
-
+                {/* controllo
+                    SE la lunghezza dell'array di prodotti è maggiore di 0,
+                        ALLORA mappa l'array e identifica i singoli prodotti in base l'id
+                    ALTRIMENTI non fare niente
+                */}
+            {
+                products.length > 0
+                ?
+                products.map(singleProduct => {
+                    <CartItem key={singleProduct.id}{...singleProduct} />
+                })
+                :
+                null
+            }
+            
             <div className="total">
                 <span>
                     TOTAL: xxx€

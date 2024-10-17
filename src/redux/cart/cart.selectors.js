@@ -8,7 +8,7 @@ export const selectCart = state => state.cart;
 //II -> callback per prendere i dettagli dei prodotti
 export const selectCartProducts = createSelector(
     [selectCart],
-    products => products.cartItems
+    products => products.cartItems,
 )
 
 //dichiaro una variabile in cui creo il selettore per contare i prodotti nel carrello

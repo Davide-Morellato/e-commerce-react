@@ -24,7 +24,7 @@ const DropdownCart = () => {
                 {
                     products.length > 0
                     ?
-                    products.map(singleProduct => {
+                    products.map((singleProduct) => {
                         <SingleItem key={singleProduct.id}{...singleProduct}/>
                     })
                     :

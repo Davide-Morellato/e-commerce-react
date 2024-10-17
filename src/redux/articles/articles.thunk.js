@@ -6,7 +6,7 @@ import {
 } from "./articles.actions";
 
 //dichiaro una funzione per ottenere gli articoli da firestore, er inserirli nello store di redux
-export const getProducts = async () => {
+export const getProducts = () => {
   return (dispatch) => {
     //richiamo il ref e lo snapshot
     const productsRef = firestore.collection("products"); //riprendo la categoria prodotti inserita precedentemente con categoryRef[sopra in productsIntoDatabase]

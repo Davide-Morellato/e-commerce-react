@@ -8,14 +8,14 @@ export const addProduct = (cartProducts, addingProduct) => {
 
   //verifico se il singolo prodotto è presente nel carrello tramite il metodo find(),
   //a cui passo una callback in cui prendo il prodotto e dichiaro che quel prodotto (identificato tramite l'id) deve corrispondere al prodotto da aggiungere/incrementare
-  const singleCartProductAdd = cartProducts.find(product => product.id === addingProduct.id);
+  const singleCartProduct = cartProducts.find(product => product.id === addingProduct.id);
 
   //controllo
   //SE il prodotto è presente nel carrello
     //è necessario mappare il carrello (cartProducts), per identificare il prodotto tramite l'id
     //ALLORA restituisci un oggetto con i dati del prodotto & la quantità + 1
   //ALTRIMENTI restituire il prodotto senza modifiche
-  if (singleCartProductAdd) {
+  if (singleCartProduct) {
     return cartProducts.map((product) =>
       product.id === addingProduct.id
         ?
@@ -48,12 +48,12 @@ export const removeProduct = (cartProducts, removingProduct) => {
 
   //verifico se il singolo prodotto è presente nel carrello tramite il metodo find(),
   //a cui passo una callback in cui prendo il prodotto e dichiaro che quel prodotto (identificato tramite l'id) deve corrispondere al prodotto da rimuovere
-  const singleCartProductRemove = cartProducts.find(product => product.id === removingProduct.id);
+  const singleCartProduct = cartProducts.find(product => product.id === removingProduct.id);
 
   //controllo 
   //SE il singolo prodotto ha una quantità pari a 1
       //ALLORA è necessario filtrare i prodotti nel carrello per differenziare gli altri prodotti (identificati in base all'id) dal prodotto da rimuovere
-  if(singleCartProductRemove.quantity === 1){
+  if(singleCartProduct.quantity === 1){
       return cartProducts.filter(product => product.id !== removingProduct.id)
   }
 

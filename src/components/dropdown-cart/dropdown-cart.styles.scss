@@ -1,20 +1,17 @@
 .dropdown-cart{
     display: flex;
     flex-direction: column;
-     
+
     .cart_items {
         height: 240px;
         display: flex;
         flex-direction: column;
-        overflow: hidden;
+        overflow-y: scroll;
+        margin-bottom: 10px;
     }
     
     .empty_mex {
         font-size: 18px;
         margin: 50px auto;
-    }
-    
-    button {
-        margin-top: auto;
     }
 }

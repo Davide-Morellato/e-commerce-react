@@ -1,6 +1,5 @@
 import { CartActionTypes } from "./cart.types";
-import {addProduct} from './cart.utilities' //importo la funzione da cart.utilities.js
-import {removeProduct} from './cart.utilities' //importo la funzione da cart.utilities.js
+import { addedProduct, removedProduct } from './cart.utilities' //importo la funzione da cart.utilities.js
 
 //definisco lo state iniziale del menu come nascosto all'inizio
 //definisco lo state degli articoli nel carrello con un array vuoto
@@ -28,19 +27,19 @@ const CartReducer = (state = INITIAL_STATE, action) =>{
         case CartActionTypes.ADD_PRODUCT:
         return{
             ...state,
-            cartItems: addProduct(state.cartItems, action.payload) //applico la funzione addProduct dichiarata in cart.utilities, a cui passo come parametro l'array vuoto di cartItems (per popolarlo di prodotti) + il payload per l'addingProduct
+            cartItems: addedProduct(state.cartItems, action.payload) //applico la funzione addProduct dichiarata in cart.utilities, a cui passo come parametro l'array vuoto di cartItems (per popolarlo di prodotti) + il payload per l'addingProduct
         }
 
         case CartActionTypes.REMOVE_PRODUCT:
             return{
                 ...state,
-                cartItems: removeProduct(state.cartItems, action.payload)
+                cartItems: removedProduct(state.cartItems, action.payload)
             }
 
         case CartActionTypes.DELETE_PRODUCT:
             return {
                 ...state,
-                cartItems: state.cartItems.filter((product) => product.id !== action.payload.id) //pfiltrate l'array cartItems nello state, identificando i prodotti in base all'id e eliminare solo il prodotto selezionato
+                cartItems: state.cartItems.filter((product) => product.id !== action.payload.id) //filtrate l'array cartItems nello state, identificando i prodotti in base all'id e eliminare solo il prodotto selezionato
             }
 
         case CartActionTypes.EMPTY_CART:

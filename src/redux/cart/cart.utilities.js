@@ -4,7 +4,7 @@
 //gli passo 2 parametri:
 //cartProducts: controlla lo state del carrello, per capire se ci sono prodotti al suo interno
 //addingProduct: per l'aggiunta/incremento di un determinato prodotto
-export const addProduct = (cartProducts, addingProduct) => {
+export const addedProduct = (cartProducts, addingProduct) => {
 
   //verifico se il singolo prodotto è presente nel carrello tramite il metodo find(),
   //a cui passo una callback in cui prendo il prodotto e dichiaro che quel prodotto (identificato tramite l'id) deve corrispondere al prodotto da aggiungere/incrementare
@@ -44,7 +44,7 @@ export const addProduct = (cartProducts, addingProduct) => {
 //gli passo 2 parametri:
 //cartProducts: controlla lo state del carrello, per capire se ci sono prodotti al suo interno
 //removingProduct: per la rimozione di un determinato prodotto
-export const removeProduct = (cartProducts, removingProduct) => {
+export const removedProduct = (cartProducts, removingProduct) => {
 
   //verifico se il singolo prodotto è presente nel carrello tramite il metodo find(),
   //a cui passo una callback in cui prendo il prodotto e dichiaro che quel prodotto (identificato tramite l'id) deve corrispondere al prodotto da rimuovere

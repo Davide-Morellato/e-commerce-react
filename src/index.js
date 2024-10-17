@@ -6,17 +6,22 @@ import reportWebVitals from "./reportWebVitals";
 
 import { BrowserRouter } from "react-router-dom"; //importo le rotte
 
-import { store } from "./redux/store"; //importo lo store
+import { store, storePersistance } from "./redux/store"; //importo lo store & la funzione di persistenza dei dati
 import { Provider } from "react-redux"; //importo il Provider
+import { PersistGate } from "redux-persist/integration/react"; //importo il componente che permetterà il persistere dei dati
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     {/* aggiungo il Provider a cui passo come attributo lo store */}
     <Provider store={store}>
       {/* inserisco il BrowserRouter */}
       <BrowserRouter>
+      <PersistGate storePersistance={storePersistance}>
         <App />
+      </PersistGate>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>

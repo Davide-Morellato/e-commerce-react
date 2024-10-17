@@ -2,14 +2,15 @@ import {createStore, applyMiddleware} from 'redux'; //importo la funzione create
 
 import { logger } from 'redux-logger'; //importo il logger di REDUX che funge da middleware per il monitoraggio dello State
 import { persistStore } from 'redux-persist'; //importo il persistStore di REDUX per la persistenza dei dati
-
+import { thunk } from 'redux-thunk'; //importo il middleware per redux
 import rootReducer from './root.reducer'; //importo il reducer
 
 
 //raggruppo i middlewares in un array
 //inserisco il logger di REDUX-LOGGER
 const middlewares = [
-    logger
+    logger,
+    thunk
 ];
 
 //esporto lo store per essere inserito dove necessario nell'applicazione,

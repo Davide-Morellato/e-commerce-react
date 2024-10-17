@@ -2,6 +2,10 @@ import { createSelector } from "reselect"; //importo createSelector: una funzion
 
 //
 //dichiaro un selettore per prendere lo state dal reducer
+export const selectState = state => state.articles;
+
+//
+//dichiaro un selettore per prendere lo state dal reducer
 //restituisco i prodotti (presi da INITIAL_STATE di articles.reducer.js) con il ritorno implicito 
 //per convenzione, i selettori inziano sempre con la parola "select"
 export const selectArticlesState = state => state.articles.products;
@@ -30,3 +34,9 @@ export const selectCategoryProducts = category => createSelector(
     //SE articles esiste, ALLORA (?) mostra gli articoli associati a quella categoria
     articles => articles ? articles[category] : []
 );
+
+
+export const selectIsLoading = createSelector(
+    [selectState], //dipendenza da cui prendere i dati
+    articles => articles.isLoading
+)

@@ -4,7 +4,7 @@ import './checkout.styles.scss'
 import { useDispatch, useSelector } from "react-redux";
 import { closeCart } from "../../redux/cart/cart.actions"; //importo la funzione per il controllo dell'apertura/chiusura del carrello
 import CartItem from '../../components/cart-item/cart-item.component' //importo il componente CartItem
-import { selectCartProducts } from "../../redux/cart/cart.selectors"; //importo la funzione del selettore per i prodotti nel carrello
+import { selectCartProducts, selectTotalCart } from "../../redux/cart/cart.selectors"; //importo la funzione del selettore per i prodotti nel carrello & il totale
 
 
 const Checkout = () => {
@@ -19,6 +19,9 @@ const Checkout = () => {
 
     //salvo in una variabile il selettore
     const products = useSelector(selectCartProducts);
+
+    //richiamo il selettore per il totale
+    const total = useSelector(selectTotalCart);
 
 
     return(
@@ -59,7 +62,7 @@ const Checkout = () => {
             
             <div className="total">
                 <span>
-                    TOTAL: xxx€
+                    TOTAL: {total} €
                 </span>
             </div>
         </div>
